@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, ImageBackground, Image } from 'react-native';
+import { StyleSheet, ImageBackground, Image, ScrollView } from 'react-native';
 import { mapping, light as lightTheme } from '@eva-design/eva';
 import { ApplicationProvider, Layout, Card, Text, Button, Input } from 'react-native-ui-kitten';
 
@@ -15,21 +15,21 @@ class TelaInicial extends React.Component {
             },
             <ApplicationProvider mapping={mapping} theme={lightTheme}>
                 <ImageBackground
-                source={require('../img/background-inclinado-verde.png')}
-                blurRadius={3}
+                source={require('../img/background-if-inclinado-completo.png')}
+                blurRadius={2}
                 style={styles.imageBackground}>
                     <Layout style={styles.container} level='1'>
-                        <Text style={styles.textoTitulo} category='h4'>Q-Acadêmico para IFG</Text>
-                        <Image source={require('../img/logo-ifg.png')}
+                        <Image source={require('../img/logo-qacademico.png')}
                         style={{
                             width: '80%',
                             height: '20%',
-                            marginTop: 0,
+                            marginTop: '10%',
+                            marginBottom: '10%'
                         }}
                         resizeMode="contain"/>
                         <Input style={styles.input} placeholder='Matrícula' keyboardType='numeric'/>
                         <Input style={styles.input} placeholder='Senha' onChangeText={text => onChangeText(text)} value={state.value} secureTextEntry={true}/>
-                        <Button status='success'>Entrar</Button>
+                        <Button status='success' onPress={() => this.props.navigation.navigate('Dash')}>Entrar</Button>
                     </Layout>
                 </ImageBackground>
             </ApplicationProvider>
@@ -52,9 +52,8 @@ const styles = StyleSheet.create({
     },
     container: {
         width: '80%',
-        height: '60%',
-        top: '20%',
-
+        height: '55%',
+        top: '22%',
         borderRadius: 10,
         alignContent: 'center',
         alignItems: 'center'
@@ -64,5 +63,10 @@ const styles = StyleSheet.create({
         marginBottom: '5%' 
     }
 });
+
+TelaInicial.navigationOptions = {
+    header: null,
+    title: 'Home'
+  }
 
 export default TelaInicial
