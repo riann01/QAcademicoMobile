@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, ImageBackground, Image, ScrollView } from 'react-native';
 import { mapping, light as lightTheme } from '@eva-design/eva';
-import { ApplicationProvider, Layout, Card, Text, Button, Input } from 'react-native-ui-kitten';
+import { ApplicationProvider, Layout, Card, Text, Button, Input } from '@ui-kitten/components';
 
 class TelaInicial extends React.Component {
     
